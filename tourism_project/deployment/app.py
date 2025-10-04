@@ -3,7 +3,7 @@ from huggingface_hub import hf_hub_download
 import joblib
 import pandas as pd
 
-@st.cache(allow_output_mutation=True)
+@st.cache_resource
 def load_model():
     model_path = hf_hub_download(repo_id="Shivam174/tourism-prediction-model",
                                  filename="best_tourism_model.joblib")
