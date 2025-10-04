@@ -16,17 +16,15 @@ mlflow.set_experiment("mlops-training-experiment")
 api = HfApi()
 
 # Load the dataset from your HuggingFace dataset repository
-dataset = load_dataset("Shivam174/tourism-prediction-data")
+Xtrain_path = "hf://datasets/Shivam174/gltourism-prediction-data/Xtrain.csv"
+Xtest_path = "hf://datasets/Shivam174/gltourism-prediction-data/Xtest.csv"
+ytrain_path = "hf://datasets/Shivam174/gltourism-prediction-data/ytrain.csv"
+ytest_path = "hf://datasets/Shivam174/gltourism-prediction-data/ytest.csv"
 
-# Convert to pandas DataFrame for train and test
-train = dataset['train'].to_pandas()
-test = dataset['test'].to_pandas()
-
-# Separate features and target
-X_train = train.drop(columns=['ProdTaken'])
-y_train = train['ProdTaken']
-X_test = test.drop(columns=['ProdTaken'])
-y_test = test['ProdTaken']
+X_train = pd.read_csv(Xtrain_path)
+X_test = pd.read_csv(Xtest_path)
+y_train = pd.read_csv(ytrain_path)
+y_test = pd.read_csv(ytest_path)
 
 # Define categorical and numerical features
 categorical_features = ['TypeofContact', 'CityTier', 'Occupation', 'Gender', 'MaritalStatus', 'Designation', 'ProductPitched']
