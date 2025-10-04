@@ -14,9 +14,15 @@ df = pd.read_csv(DATASET_PATH)
 df = df.drop(columns=['CustomerID'])
 df = df.dropna()
 
-from sklearn.model_selection import train_test_split
+target_col = 'ProdTaken'
 
-train_df, test_df = train_test_split(df, test_size=0.2, random_state=42)
+# Split into X (features) and y (target)
+X = df.drop(columns=[target_col])
+y = df[target_col]
+
+Xtrain, Xtest, ytrain, ytest = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
 Xtrain.to_csv("Xtrain.csv",index=False)
 Xtest.to_csv("Xtest.csv",index=False)
 ytrain.to_csv("ytrain.csv",index=False)

@@ -5,7 +5,7 @@ import os
 # Initialize API client
 api = HfApi(token=os.getenv("HF_TOKEN"))
 
-repo_id = 'Shivam174/tourism-prediction-data'
+repo_id = 'Shivam174/gltourism-prediction-data'
 repo_type = "dataset"
 
 create_repo(repo_id, repo_type="dataset", private=False, exist_ok=True)
