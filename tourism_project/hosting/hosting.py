@@ -1,6 +1,8 @@
 from huggingface_hub import HfApi
 import os
 
+api = HfApi()
+
 api.upload_folder(
     folder_path="tourism_project/deployment",     # the local folder containing your files
     repo_id="Shivam174/tourism-prediction-model-host",          # the target repo
